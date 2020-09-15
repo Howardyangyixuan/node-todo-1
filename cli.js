@@ -1,9 +1,5 @@
-const { Command } = require('commander');
 const api = require('./index')
-const program = new Command();
-// program.version('0.0.1')
-program
-  .option('-x, --xx', 'x option')
+const { program } = require('commander');
 program
   .command('add')
   .description('add a task')
@@ -16,13 +12,14 @@ program
     }
     api.add(words)
   });
-program
-.command('clear')
-  .description('clear all tasks')
-  .action((...args) => {
-  });
-program.parse(process.argv);
-
-if (program.debug) console.log(program.opts());
-if (program.small) console.log('- small pizza size');
-if (program.pizzaType) console.log(`- ${program.pizzaType}`);
+// program
+// .command('clear')
+//   .description('clear all tasks')
+//   .action(() => {
+//     api.clear()
+//   });
+if(process.argv.length ===2){
+  api.showAll()
+}else{
+  program.parse(process.argv);
+}
