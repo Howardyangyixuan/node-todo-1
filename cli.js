@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 const api = require("./index")
 const {program} = require("commander")
+const pkg = require('./package.json')
+program
+  .version(pkg.version)
 program
   .command("add")
   .description("add a task")
