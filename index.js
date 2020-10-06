@@ -23,10 +23,10 @@ module.exports.showAll = async () => {
   let showList = list.map((item, index) => {
     return {name: `${index} - ${item.title} : ${item.done?'已完成':'未完成'}`, value: index.toString()}
   })
-  if (list.length === 0) {
-    console.log("还没有任务哦～请添加任务")
-    return
-  }
+  // if (list.length === 0) {
+  //   console.log("还没有任务哦～请添加任务")
+  //   return
+  // }
   "use strict"
   let inquirer = require("inquirer")
   inquirer
@@ -48,7 +48,7 @@ module.exports.showAll = async () => {
               {name: "已完成", value: "done"},
               {name: "未完成", value: "undone"},
               {name: "改标题", value: "updateTitle"},
-              {name: "退出", value: "remove"},
+              {name: "删除", value: "remove"},
             ]
           })
             .then((answer) => {
@@ -91,7 +91,7 @@ module.exports.showAll = async () => {
           }
           inquirer.prompt(questions).then((answers) => {
             list.push({
-              name:answers.title,
+              title:answers.title,
               done:false
             })
             db.write(list)
