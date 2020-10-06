@@ -21,7 +21,7 @@ module.exports.showAll = async () => {
   const exit = {name: "退出", value: "-1"}
   const create = {name: "创建任务", value: "-2"}
   let showList = list.map((item, index) => {
-    return {name: `${index} - ${item.title} : ${item.done}`, value: index.toString()}
+    return {name: `${index} - ${item.title} : ${item.done?'已完成':'未完成'}`, value: index.toString()}
   })
   if (list.length === 0) {
     console.log("还没有任务哦～请添加任务")
