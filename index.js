@@ -1,7 +1,7 @@
 const db = require("./db")
 const inquirer = require("inquirer")
 module.exports.add = async (title) => {
-  console.log("add")
+  // console.log("add")
   //读取
   const list = await db.read()
   //添加任务
